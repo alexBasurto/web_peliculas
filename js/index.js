@@ -30,8 +30,30 @@ async function createResultsTable(recogeReturnFngetFilmsFromApi) {
 }
 
 async function getSingleFilm(imdbID) {
+    const urlStart = 'http://www.omdbapi.com/';
+    const filmId = '?i=' + imdbID;
+    const apiKey = '&apikey=66dfa7cd';
+    const urlFilm = urlStart + filmId + apiKey;
+
+    try {
+        const response = await fetch(urlFilm);
+        if (!response.ok) {
+            throw new Error("Fallo en la llamada.");
+        }
+        const film = await response.json();
+        console.log(film);
+        createFilmFile(film); /*recibidos datos de la API,
+        llamamos a la fn que crea el DOM*/
+        return film;
+    } catch(e) {
+        console.log(e);
+        alert('Error llamando a la API.');
+        return null;
+    }
+
     /*
     encargados Alex y Olatz
+    getSingleFilm('tt0167261'); pruebas
     Cada tarjeta tendrá un addEventLIstener que activará esta función, recogiendo el ID de IMDB de la película o serie.
     con ese Id construimos la URL de la API de esa peli concreta, p.e.:
     http://www.omdbapi.com/?i=tt0167261&apikey=66dfa7cd separamos por partes:
