@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Películas</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header>
-        <h1>WEB PELÍCULAS</h1>
+        <h1>Buscador películas OMDB</h1>
     </header>
-    <main>
-        <!--¿¿aquí iría el formulario de búsqueda?? titulo, año, tipo (pelicula, serie...)-->
-        <section id="resultadosBusqueda">
-            <!--aplicariamos flexbox a esta caja para mostrar bien las tarjetas de cada peli-->
-            <!--aquí generaremos contenido con el DOM.-->
-        </section>
-    </main>
-    <script src="./js/index.js"></script>
+    <form id="movie-search-form">
+        <input type="text" id="movie-title" placeholder="Título de la película">
+        <input type="text" id="movie-year" placeholder="Año de la pelicula">
+        <input type="text" id="movie-type" placeholder="Tipo">
+        <br>
+        <button type="submit" id="submit">Buscar</button>
+        <button id="clear-elements">Refrescar</button>
+      </form>
+      <section id="main-container">
+      <section id="movie-details-container"></section>
+      </section>
+
+      <script src="./js/script.js"></script>
 </body>
 </html>
