@@ -33,8 +33,6 @@ async function createResultsTable(recogeReturnFngetFilmsFromApi) {
 }
 
 async function getSingleFilm(imdbID) {
-<<<<<<< Updated upstream
-=======
     const urlStart = 'http://www.omdbapi.com/';
     const filmId = '?i=' + imdbID;
     const apiKey = '&apikey=66dfa7cd';
@@ -44,20 +42,17 @@ async function getSingleFilm(imdbID) {
         const response = await fetch(urlFilm);
         if (!response.ok) {
             throw new Error("Fallo en la llamada.");
-        
         }
-
         const film = await response.json();
         console.log(film);
         createFilmFile(film); /*recibidos datos de la API,
         llamamos a la fn que crea el DOM*/
-        return film;
+        return film; //preguntar a DANEL
     } catch(e) {
         console.log(e);
         alert('Error llamando a la API.');
         return null;
     }
->>>>>>> Stashed changes
     /*
     encargados Alex y Olatz
     getSingleFilm('tt0167261'); pruebas
