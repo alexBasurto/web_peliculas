@@ -2,8 +2,9 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
-    background: #F6F7F8;
+    background:#bdbfc0;
 }
+
 
 h1{
     font-size: 50px;
@@ -34,28 +35,28 @@ input[type=text]{
     padding: 5px 15px;
     margin: 10px 0;
     border-radius: 5px;
-    background: #505050;
+    background: #8a8585;
     color: #fff;
     font-size: 18px;
 }
 
 #submit:hover{
     background: #fff;
-    color: #505050;
+    color: #8a8585;
 }
 
 #clear-elements{
     padding: 5px 15px;
     margin: 10px 0;
     border-radius: 5px;
-    background: #505050;
+    background: #8a8585;
     color: #fff;
     font-size: 18px;
 }
 
 #clear-elements:hover{
     background: #fff;
-    color: #505050;
+    color: #8a8585;
 }
 
 #movie-search-form{
@@ -65,11 +66,12 @@ input[type=text]{
 }
 
 #movie-year-p, #movie-type-p{
-    font-weight: 300;
+    font-weight: 500;
     padding-top: 10px;
     font-size: 18px;
     text-align: center;
     color: rgb(37, 37, 37);
+
 }
 
 #main-container{
@@ -90,9 +92,11 @@ input[type=text]{
     width: 18%;
     padding-bottom: 25px;
    /*  padding: 10px; */
-    background-color: #bdbfc0;
+    background-color: #8a8585;;
     margin: 10px;
     border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 img{
@@ -102,5 +106,4 @@ img{
     display: block;
     margin-top: 60px;
     margin-left: 28px;
-
 }

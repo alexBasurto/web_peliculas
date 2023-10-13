@@ -66,7 +66,7 @@ function renderMovie(result){
 
   const imgElement = document.createElement('img');
   if(result.Poster === 'N/A'){
-  imgElement.src = "../assets/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg";
+  imgElement.src = "../assets/placeholder-vertical.jpg";
   }else{
     imgElement.src = ` ${result.Poster}`;
   }
