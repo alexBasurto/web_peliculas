@@ -2,7 +2,7 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
-    background:#bdbfc0;
+    background:#727272;
 }
 
 
@@ -35,28 +35,30 @@ input[type=text]{
     padding: 5px 15px;
     margin: 10px 0;
     border-radius: 5px;
-    background: #8a8585;
-    color: #fff;
+    background-color: #a8a8a8;
+    color: rgb(37, 37, 37);
     font-size: 18px;
 }
 
 #submit:hover{
     background: #fff;
     color: #8a8585;
+    font-weight: 500;
 }
 
 #clear-elements{
     padding: 5px 15px;
     margin: 10px 0;
     border-radius: 5px;
-    background: #8a8585;
-    color: #fff;
+    background-color: #a8a8a8;
+    color: rgb(37, 37, 37);
     font-size: 18px;
 }
 
 #clear-elements:hover{
     background: #fff;
     color: #8a8585;
+    font-weight: 500;
 }
 
 #movie-search-form{
@@ -89,14 +91,17 @@ input[type=text]{
 }
 
 .movie-details{
-    width: 18%;
+    width: 16%;
     padding-bottom: 25px;
-   /*  padding: 10px; */
-    background-color: #8a8585;;
-    margin: 10px;
+    background-color: #a8a8a8;
+    margin-bottom: 60px;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 img{
@@ -104,6 +109,5 @@ img{
     width: 80%;
     border-radius: 10px;
     display: block;
-    margin-top: 60px;
-    margin-left: 28px;
+    margin-top: 35px;
 }
