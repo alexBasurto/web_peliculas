@@ -104,3 +104,8 @@ img{
     margin-left: 28px;
 
 }
+
+img.favorite {
+    width: 48px;
+    height: 48px;
+}
