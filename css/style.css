@@ -104,8 +104,6 @@ input[type=text]{
     align-items: center;
 }
 
-
-
 .movie-details:hover{
     cursor: pointer;
 }

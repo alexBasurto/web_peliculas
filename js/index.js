@@ -100,9 +100,7 @@ function renderMovie(result){
     //llamo a la función getSingleFilm para obtener los detalles de la película
     getSingleFilm(imdbID);
     });
-}
-
-
+  }
 
 //declaro variable para el boton de refrescar
 const clearButton = document.getElementById('clear-elements');
