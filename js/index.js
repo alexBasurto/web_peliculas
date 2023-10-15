@@ -89,7 +89,19 @@ function renderMovie(result){
 
   // agrego el elemento article a la section movieDetailsContainer
   movieDetailsContainer.appendChild(movieDetailsArticle);
+
+
+
+  //click en la imágen y pinto con la función getSingleFilm que recoge con el imdbId toda al info de la película
+  movieDetailsArticle.addEventListener('click', function() {
+
+    //el IMDb ID de la película
+    const imdbID = result.imdbID; 
+    //llamo a la función getSingleFilm para obtener los detalles de la película
+    getSingleFilm(imdbID);
+    });
 }
+
 
 
 //declaro variable para el boton de refrescar
@@ -113,6 +125,7 @@ function createResultsTable(result) {
   // agrego detalles de la película al elemento article
 
   const imgElement = document.createElement('img');
+  imgElement.className = 'movie-img';
   if(result.Poster === 'N/A'){
   imgElement.src = "../assets/360_F_248426448_NVKLconstywWqArG2ADUxDq6QprtIzsF82dMF.jpg";
   }else{
@@ -210,6 +223,7 @@ async function createFilmFile(filmData) {
     
     //Imagen
     const imagenElem = document.createElement("img");
+    /* imagenElem.className = 'movie-img'; */
     imagenElem.src = filmData.Poster;
     movieDetailsContainer.appendChild(imagenElem);
 

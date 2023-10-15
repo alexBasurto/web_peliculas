@@ -104,9 +104,25 @@ input[type=text]{
     align-items: center;
 }
 
+
+
+.movie-details:hover{
+    cursor: pointer;
+}
+
+/* .movie-img{
+    height: 400px;
+    width: 90%;
+    overflow: hidden;
+    border-radius: 10px;
+    display: block;
+    margin-top: 35px;
+} */
+
 img{
     height: 400px;
-    width: 80%;
+    width: 90%;
+    overflow: hidden;
     border-radius: 10px;
     display: block;
     margin-top: 35px;
