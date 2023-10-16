@@ -13,35 +13,35 @@ document.getElementById('movie-search-form').addEventListener('submit', async fu
   //variable para la apikey
   const apiKey = 'ddcc8d85';
 
-  document.getElementById('movie-search-form').reset();
-  movieDetailsContainer.innerHTML = '';
-
-
-  //alerta si no meten ningún título
-  if (movieTitle === "") {
-    //Utilizo esto por si quiero decir que metan algo en el form, pero si le doy al refrescar tambien me sale, solucionar el problema
-    alert('Ingresa un título de película');
-    return;
-  }
-
-  //variable con la url y entrada de las variables de nombre y apikey en forma de template string
-  const apiUrl = `https://www.omdbapi.com/?s=${movieTitle}&y=${movieYear}&type=${movieType}&apikey=${apiKey}`;
-
-  // try & catch
-  try {
-    //variable con la respuesta que recojo con un fetch  
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error('Error al obtener información de la película desde la API');
+    document.getElementById('movie-search-form').reset();
+    movieDetailsContainer.innerHTML = '';
+    
+  
+    //alerta si no meten ningún título
+    if (movieTitle === "") {
+      //Utilizo esto por si quiero decir que metan algo en el form, pero si le doy al refrescar tambien me sale, solucionar el problema
+      alert('Ingresa un título de película');
+      return;
     }
-
-    //recojo la respuesta y mediante json los formateo para javascript
-    const data = await response.json();
-
-    if (data.Error) {
-      throw new Error(data.Error);
-    }
-
+  
+    //variable con la url y entrada de las variables de nombre y apikey en forma de template string
+    const apiUrl = `https://www.omdbapi.com/?s=${movieTitle}&y=${movieYear}&type=${movieType}&apikey=${apiKey}`;
+  
+    // try & catch
+    try {
+      //variable con la respuesta que recojo con un fetch  
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error('Error al obtener información de la película desde la API');
+      }
+      
+      //recojo la respuesta y mediante json los formateo para javascript
+      const data = await response.json();
+  
+      if (data.Error) {
+        throw new Error(data.Error);
+      }
+    
     // creo article para mostrar resultados
 
     //recojo los datos que recibo en array y los separo
@@ -58,16 +58,18 @@ document.getElementById('movie-search-form').addEventListener('submit', async fu
 });
 
 //función de pintar en HTML
-function renderMovie(result) {
-  const movieDetailsArticle = document.createElement('article');
-  movieDetailsArticle.className = 'movie-details';
+function renderMovie(result){
+    const movieDetailsArticle = document.createElement('article');
+    movieDetailsContainer.className = 'clBusqueda';
+    movieDetailsArticle.className = 'movie-details';
 
   // agrego detalles de la película al elemento article
 
   const imgElement = document.createElement('img');
-  if (result.Poster === 'N/A') {
-    imgElement.src = "../assets/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg";
-  } else {
+  imgElement.className = 'movie-image';
+  if(result.Poster === 'N/A'){
+  imgElement.src = "../assets/placeholder-vertical.jpg";
+  }else{
     imgElement.src = ` ${result.Poster}`;
   }
   movieDetailsArticle.appendChild(imgElement);
@@ -110,14 +112,26 @@ function renderMovie(result) {
 
   // agrego el elemento article a la section movieDetailsContainer
   movieDetailsContainer.appendChild(movieDetailsArticle);
-}
 
+
+
+  //click en la imágen y pinto con la función getSingleFilm que recoge con el imdbId toda al info de la película
+  movieDetailsArticle.addEventListener('click', function() {
+
+    //el IMDb ID de la película
+    const imdbID = result.imdbID; 
+    //llamo a la función getSingleFilm para obtener los detalles de la película
+    getSingleFilm(imdbID);
+    });
+  }
 
 //declaro variable para el boton de refrescar
 const clearButton = document.getElementById('clear-elements');
 
 //función de refrescar
-clearButton.addEventListener("click", function () {
+clearButton.addEventListener("click", function(event){
+  //si hago click en este boton no le llega info al formulario de que se ha hecho click
+  //event.stopPropagation();
   // lista de todos los elementos con class movie-details
   const movieDetailsElements = document.querySelectorAll('.movie-details');
 
@@ -131,12 +145,13 @@ function createResultsTable(result) {
   movieDetailsArticle = document.createElement('article');
   movieDetailsArticle.className = 'movie-details';
 
-  // agrego detalles de la película al elemento article
+  // agrego img,title, type y año al elemento article
 
   const imgElement = document.createElement('img');
-  if (result.Poster === 'N/A') {
-    imgElement.src = "../assets/360_F_248426448_NVKLconstywWqArG2ADUxDq6QprtIzsF82dMF.jpg";
-  } else {
+  imgElement.className = 'movie-img';
+  if(result.Poster === 'N/A'){
+  imgElement.src = "../assets/placeholder-vertical.jpg";
+  }else{
     imgElement.src = ` ${result.Poster}`;
   }
   movieDetailsArticle.appendChild(imgElement);
@@ -199,17 +214,16 @@ async function getSingleFilm(imdbID) {
 }
 
 async function createFilmFile(filmData) {
-  /*
-  encargados Olatz y Alex    
-  */
-  //1º vaciar .innerHTML=""
-  //2º sacar la info
-  //
-  movieDetailsContainer.innerHTML = "";
-
-  //    resultadosBusqueda.innerHTML = filmData.Title ;    
-  //  resultadosBusqueda.innerHTML = filmData.Year;
-  //resultadosBusqueda.innerHTML = filmData.Rated;
+    /*
+    encargados Olatz y Alex    
+    */
+    //1º vaciar .innerHTML=""
+    //2º sacar la info
+    //
+    movieDetailsContainer.innerHTML = "";
+    //    resultadosBusqueda.innerHTML = filmData.Title ;    
+    //  resultadosBusqueda.innerHTML = filmData.Year;
+    //resultadosBusqueda.innerHTML = filmData.Rated;
 
   //Titulo
 
