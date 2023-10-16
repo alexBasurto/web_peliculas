@@ -126,11 +126,11 @@ function renderMovie(result){
     });
   }
 
-//declaro variable para el boton de refrescar
-const clearButton = document.getElementById('clear-elements');
+  //declaro variable para el boton de refrescar
+  const clearButton = document.getElementById('clear-elements');
 
-//función de refrescar
-clearButton.addEventListener("click", function(event){
+  //función de refrescar
+  clearButton.addEventListener("click", function(event){
   //si hago click en este boton no le llega info al formulario de que se ha hecho click
   //event.stopPropagation();
   // lista de todos los elementos con class movie-details
@@ -362,7 +362,11 @@ async function createFilmFile(filmData) {
     //const mainContainer = document.getElementById("main-container");
     
     const imagenElem = document.createElement("img");
+    if(filmData.Poster !== 'N/A'){
     imagenElem.src = filmData.Poster;
+    } else{
+      imagenElem.src = "../assets/placeholder-vertical.jpg";
+    }
     
     const articleImage = document.createElement("article");
     articleImage.className = 'article-image';
