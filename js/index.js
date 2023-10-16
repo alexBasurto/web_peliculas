@@ -18,9 +18,9 @@ document.getElementById('movie-search-form').addEventListener('submit', async fu
 
 
   //alerta si no meten ningún título
-  if (!movieTitle) {
+  if (movieTitle === "") {
     //Utilizo esto por si quiero decir que metan algo en el form, pero si le doy al refrescar tambien me sale, solucionar el problema
-    /* alert('Ingresa un título de película'); */
+    alert('Ingresa un título de película');
     return;
   }
 
@@ -175,7 +175,6 @@ async function getSingleFilm(imdbID) {
     console.log(film);
     createFilmFile(film); /*recibidos datos de la API,
       llamamos a la fn que crea el DOM*/
-    return film; //preguntar a DANEL
   } catch (e) {
     console.log(e);
     alert('Error llamando a la API.');
