@@ -366,6 +366,7 @@ async function createFilmFile(filmData) {
     
     
     
+    
     const articleImage = document.createElement("article");
     articleImage.className = 'article-image';
     articlePrincipal.appendChild(articleImage);
@@ -454,7 +455,6 @@ async function createFilmFile(filmData) {
     //articleRatings.appendChild(imdbVotElem);
         
 }
-
 
 //función para añadir o quitar películas de favoritos en localStorage
 function addOrRemoveFavs(imdbID) {
