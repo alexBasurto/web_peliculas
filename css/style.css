@@ -161,6 +161,12 @@ text-align: left;
 img{
     object-fit: cover;
     width:600px;
+
+}
+
+img.favorite {
+    width: 48px;
+    height: 48px;
 }
 
 h1

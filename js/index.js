@@ -183,14 +183,13 @@ async function getSingleFilm(imdbID) {
   const urlFilm = urlStart + filmId + apiKey;
 
   try {
-      const response = await fetch(urlFilm);
-      if (!response.ok) {
-          throw new Error("Fallo en la llamada.");
-      }
-      const film = await response.json();
-      console.log(film);
-      createFilmFile(film); 
-      /*recibidos datos de la API,
+    const response = await fetch(urlFilm);
+    if (!response.ok) {
+      throw new Error("Fallo en la llamada.");
+    }
+    const film = await response.json();
+    console.log(film);
+    createFilmFile(film); /*recibidos datos de la API,
       llamamos a la fn que crea el DOM*/
   } catch (e) {
     console.log(e);
@@ -223,6 +222,7 @@ async function createFilmFile(filmData) {
     //2º sacar la info
     //
     movieDetailsContainer.innerHTML = "";
+
     //Creo clase para la sección
     const movieSection = document.createElement("section");
     movieSection.className = 'movieSection';
@@ -452,9 +452,31 @@ async function createFilmFile(filmData) {
     imdbVotElem.appendChild(textV);
     imdbVotElem.innerHTML += filmData.imdbVotes;
     articleRating2.appendChild(imdbVotElem)
-    //articleRatings.appendChild(imdbVotElem);
-        
+
+  //favs (código de ALEX)
+  const favElement = document.createElement('img');
+  if (isThisFilmFav(filmData.imdbID)) {
+    favElement.setAttribute("src", "../assets/fav.png");
+  } else {
+    favElement.setAttribute("src", "../assets/nofav.png");
+  }
+  favElement.className = 'favorite';
+
+  favElement.addEventListener('click', () => {
+    const currentSrc = favElement.getAttribute('src');
+    if (currentSrc === '../assets/fav.png') {
+      favElement.setAttribute("src", "../assets/nofav.png");
+    } else if (currentSrc === '../assets/nofav.png') {
+      favElement.setAttribute("src", "../assets/fav.png");
+    }
+
+    addOrRemoveFavs(filmData.imdbID);
+});
+
+  movieSection.appendChild(favElement);
+
 }
+
 
 //función para añadir o quitar películas de favoritos en localStorage
 function addOrRemoveFavs(imdbID) {
