@@ -25,18 +25,20 @@ input[type=text]{
     padding: 15px 0;
     width: 15%;
     margin: 10px 0;
-    border-radius: 5px;
+    border-radius: 10px;
     color: rgb(37, 37, 37);
     font-size: 18px;
+    border: none;
 }
 
 #submit{
     padding: 5px 15px;
     margin: 10px 0;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #a8a8a8;
     color: rgb(37, 37, 37);
-    font-size: 18px;
+    font-size: 20px;
+    border: none;
 }
 
 #submit:hover{
@@ -48,10 +50,11 @@ input[type=text]{
 #clear-elements{
     padding: 5px 15px;
     margin: 10px 0;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #a8a8a8;
     color: rgb(37, 37, 37);
-    font-size: 18px;
+    font-size: 20px;
+    border: none;
 }
 
 #clear-elements:hover{
@@ -103,7 +106,7 @@ input[type=text]{
     align-items: center;
 }
 
-.movie-details:hover{
+.movie-image:hover{
     cursor: pointer;
 }
 
@@ -124,3 +127,9 @@ input[type=text]{
     display: block;
     margin-top: 35px;
 } */
+
+.favorite{
+    height: 40px;
+    height: 40px;
+    margin-top: 10px;
+}

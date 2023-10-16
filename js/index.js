@@ -92,17 +92,17 @@ function renderMovie(result){
   //favs (ALEX)
   const favElement = document.createElement('img');
   if (isThisFilmFav(result.imdbID)) {
-    favElement.setAttribute("src", "../assets/fav.png");
+    favElement.setAttribute("src", "../assets/star_fav.png");
   } else {
-    favElement.setAttribute("src", "../assets/nofav.png");
+    favElement.setAttribute("src", "../assets/star.png");
   }
   favElement.className = 'favorite';
   favElement.addEventListener('click', () => {
     const currentSrc = favElement.getAttribute('src');
-    if (currentSrc === '../assets/fav.png') {
-      favElement.setAttribute("src", "../assets/nofav.png");
-    } else if (currentSrc === '../assets/nofav.png') {
-      favElement.setAttribute("src", "../assets/fav.png");
+    if (currentSrc === '../assets/star_fav.png') {
+      favElement.setAttribute("src", "../assets/star.png");
+    } else if (currentSrc === '../assets/star.png') {
+      favElement.setAttribute("src", "../assets/star_fav.png");
     }
 
     addOrRemoveFavs(result.imdbID);
@@ -116,7 +116,7 @@ function renderMovie(result){
 
 
   //click en la imágen y pinto con la función getSingleFilm que recoge con el imdbId toda al info de la película
-  movieDetailsArticle.addEventListener('click', function() {
+  imgElement.addEventListener('click', function() {
 
     //el IMDb ID de la película
     const imdbID = result.imdbID; 
@@ -367,18 +367,18 @@ async function createFilmFile(filmData) {
   //favs (código de ALEX)
   const favElement = document.createElement('img');
   if (isThisFilmFav(filmData.imdbID)) {
-    favElement.setAttribute("src", "../assets/fav.png");
+    favElement.setAttribute("src", "../assets/star_fav.png");
   } else {
-    favElement.setAttribute("src", "../assets/nofav.png");
+    favElement.setAttribute("src", "../assets/star.png");
   }
   favElement.className = 'favorite';
 
   favElement.addEventListener('click', () => {
     const currentSrc = favElement.getAttribute('src');
-    if (currentSrc === '../assets/fav.png') {
-      favElement.setAttribute("src", "../assets/nofav.png");
+    if (currentSrc === '../assets/star_fav.png') {
+      favElement.setAttribute("src", "../assets/star.png");
     } else if (currentSrc === '../assets/nofav.png') {
-      favElement.setAttribute("src", "../assets/fav.png");
+      favElement.setAttribute("src", "../assets/star_fav.png");
     }
 
     addOrRemoveFavs(filmData.imdbID);
