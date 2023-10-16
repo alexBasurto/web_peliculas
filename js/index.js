@@ -18,9 +18,9 @@ document.getElementById('movie-search-form').addEventListener('submit',async fun
     
   
     //alerta si no meten ningún título
-    if (!movieTitle) {
+    if (movieTitle === "") {
       //Utilizo esto por si quiero decir que metan algo en el form, pero si le doy al refrescar tambien me sale, solucionar el problema
-      /* alert('Ingresa un título de película'); */
+      alert('Ingresa un título de película');
       return;
     }
   
@@ -60,6 +60,7 @@ document.getElementById('movie-search-form').addEventListener('submit',async fun
 //función de pintar en HTML
 function renderMovie(result){
     const movieDetailsArticle = document.createElement('article');
+    movieDetailsContainer.className = 'clBusqueda';
     movieDetailsArticle.className = 'movie-details';
 
   // agrego detalles de la película al elemento article
@@ -107,7 +108,9 @@ function renderMovie(result){
 const clearButton = document.getElementById('clear-elements');
 
 //función de refrescar
-clearButton.addEventListener("click", function(){
+clearButton.addEventListener("click", function(event){
+  //si hago click en este boton no le llega info al formulario de que se ha hecho click
+  //event.stopPropagation();
   // lista de todos los elementos con class movie-details
   const movieDetailsElements = document.querySelectorAll('.movie-details');
   
@@ -126,7 +129,7 @@ function createResultsTable(result) {
   const imgElement = document.createElement('img');
   imgElement.className = 'movie-img';
   if(result.Poster === 'N/A'){
-  imgElement.src = "../assets/360_F_248426448_NVKLconstywWqArG2ADUxDq6QprtIzsF82dMF.jpg";
+  imgElement.src = "../assets/placeholder-vertical.jpg";
   }else{
     imgElement.src = ` ${result.Poster}`;
   }
@@ -198,7 +201,6 @@ async function createFilmFile(filmData) {
     //2º sacar la info
     //
     movieDetailsContainer.innerHTML = "";
-
     //    resultadosBusqueda.innerHTML = filmData.Title ;    
     //  resultadosBusqueda.innerHTML = filmData.Year;
     //resultadosBusqueda.innerHTML = filmData.Rated;

@@ -5,8 +5,7 @@ body{
     background:#727272;
 }
 
-
-h1{
+#titulo-header{
     font-size: 50px;
     text-align: center;
     margin: 20px;
@@ -82,7 +81,7 @@ input[type=text]{
     margin-right: 40px;
 }
 
-#movie-details-container{
+.clBusqueda{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
