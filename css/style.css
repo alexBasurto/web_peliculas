@@ -108,16 +108,7 @@ input[type=text]{
     cursor: pointer;
 }
 
-/* .movie-img{
-    height: 400px;
-    width: 90%;
-    overflow: hidden;
-    border-radius: 10px;
-    display: block;
-    margin-top: 35px;
-} */
-
-img{
+.movie-image{
     height: 400px;
     width: 90%;
     overflow: hidden;
@@ -125,3 +116,12 @@ img{
     display: block;
     margin-top: 35px;
 }
+
+/* img{
+    height: 400px;
+    width: 90%;
+    overflow: hidden;
+    border-radius: 10px;
+    display: block;
+    margin-top: 35px;
+} */

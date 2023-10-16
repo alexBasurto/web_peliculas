@@ -65,6 +65,7 @@ function renderMovie(result){
   // agrego detalles de la película al elemento article
 
   const imgElement = document.createElement('img');
+  imgElement.className = 'movie-image';
   if(result.Poster === 'N/A'){
   imgElement.src = "../assets/placeholder-vertical.jpg";
   }else{
@@ -120,7 +121,7 @@ function createResultsTable(result) {
     movieDetailsArticle = document.createElement('article');
     movieDetailsArticle.className = 'movie-details';
 
-  // agrego detalles de la película al elemento article
+  // agrego img,title, type y año al elemento article
 
   const imgElement = document.createElement('img');
   imgElement.className = 'movie-img';
