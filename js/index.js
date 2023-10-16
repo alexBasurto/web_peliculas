@@ -364,9 +364,6 @@ async function createFilmFile(filmData) {
     const imagenElem = document.createElement("img");
     imagenElem.src = filmData.Poster;
     
-    
-    
-    
     const articleImage = document.createElement("article");
     articleImage.className = 'article-image';
     articlePrincipal.appendChild(articleImage);
@@ -456,18 +453,18 @@ async function createFilmFile(filmData) {
   //favs (código de ALEX)
   const favElement = document.createElement('img');
   if (isThisFilmFav(filmData.imdbID)) {
-    favElement.setAttribute("src", "../assets/fav.png");
+    favElement.setAttribute("src", "../assets/star_fav.png");
   } else {
-    favElement.setAttribute("src", "../assets/nofav.png");
+    favElement.setAttribute("src", "../assets/star.png");
   }
   favElement.className = 'favorite';
 
   favElement.addEventListener('click', () => {
     const currentSrc = favElement.getAttribute('src');
-    if (currentSrc === '../assets/fav.png') {
-      favElement.setAttribute("src", "../assets/nofav.png");
-    } else if (currentSrc === '../assets/nofav.png') {
-      favElement.setAttribute("src", "../assets/fav.png");
+    if (currentSrc === '../assets/star_fav.png') {
+      favElement.setAttribute("src", "../assets/star.png");
+    } else if (currentSrc === '../assets/star.png') {
+      favElement.setAttribute("src", "../assets/star_fav.png");
     }
 
     addOrRemoveFavs(filmData.imdbID);

@@ -2,14 +2,14 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
-    background:#727272;
+    background: #2a2a2a;
 }
 
 #titulo-header{
     font-size: 50px;
     text-align: center;
     margin: 20px;
-    color: rgb(37, 37, 37);
+    color: #e6e6e7;
 }
 
 .movie-title-h2{
@@ -82,6 +82,7 @@ input[type=text]{
     width: vw;
     display: flex;
     margin-right: 40px;
+    margin-bottom: 40px;
 }
 
 .clBusqueda{
@@ -95,7 +96,7 @@ input[type=text]{
 .movie-details{
     width: 16%;
     padding-bottom: 25px;
-    background-color: #a8a8a8;
+    background-color: #b8b8b8;
     margin-bottom: 60px;
     border-radius: 10px;
     padding-left: 10px;
@@ -124,14 +125,17 @@ input[type=text]{
 
     border: 1px solid rgb(107, 90, 90);
     padding: 20px;
-    background-color: aliceblue;
-
+    background-color: #A8A8A8;
+    border-radius: 10px;
+    align-items: center;
 }
 
 .title-style
 {
 color: "red";
-font-size: 35px;
+font-size: 80px;
+text-align: center;
+color:rgb(37, 37, 37);
 
 }
 
@@ -182,6 +186,7 @@ p
     padding-bottom: 5px;
     line-height: 1.5;
     font-size: 23px;
+    color:rgb(37, 37, 37);
 }
 
 .article-more-info{
