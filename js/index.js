@@ -1,4 +1,4 @@
-const resultadosBusqueda = document.getElementById('resultadosBusqueda');
+//const resultadosBusqueda = document.getElementById('resultadosBusqueda');
 const fichaPelicula = document.getElementById('fichaPelicula');
 const movieDetailsContainer = document.getElementById('movie-details-container');
 
@@ -56,6 +56,7 @@ document.getElementById('movie-search-form').addEventListener('submit',async fun
       console.error('Error:', error);
     }
 });
+
 
 //función de pintar en HTML
 function renderMovie(result){
@@ -152,7 +153,8 @@ async function getSingleFilm(imdbID) {
       }
       const film = await response.json();
       console.log(film);
-      createFilmFile(film); /*recibidos datos de la API,
+      createFilmFile(film); 
+      /*recibidos datos de la API,
       llamamos a la fn que crea el DOM*/
       return film; //preguntar a DANEL
   } catch(e) {
@@ -186,142 +188,226 @@ async function createFilmFile(filmData) {
     //2º sacar la info
     //
     movieDetailsContainer.innerHTML = "";
+    //Creo clase para la sección
+    const movieSection = document.createElement("section");
+    movieSection.className = 'movieSection';
+    //Meto la nueva sección en la que ya existía
+    movieDetailsContainer.appendChild(movieSection);
 
-    //    resultadosBusqueda.innerHTML = filmData.Title ;    
-    //  resultadosBusqueda.innerHTML = filmData.Year;
-    //resultadosBusqueda.innerHTML = filmData.Rated;
-
+    
+    
     //Titulo
-
+    
     // const title = filmData.Title;
     // console.log(title);
-    const tituloElem = document.createElement("h2");
+    const tituloElem = document.createElement("h1");
+    tituloElem.className = "title-style";
     tituloElem.innerHTML = filmData.Title.toUpperCase();
-    movieDetailsContainer.appendChild(tituloElem);
+    movieSection.appendChild(tituloElem);
     
+
+    //Creo ARTICULO PRINCIPAL, contendrá articulo de texto y otro de imagen en FLEXBOX
+
+    const articlePrincipal = document.createElement("article");
+    articlePrincipal.className = "article-principal";
+    movieSection.appendChild(articlePrincipal);
+
+
+    //Creo ARTICULO de texto dentro de la sección y del ARTICULO PRINCIPAL     
+    const articleText = document.createElement('article');
+    articleText.className = 'article-text';
+    articlePrincipal.appendChild(articleText);
+
     //Año
     //const year = filmData.Year;
     // console.log(year);
-    const yearElem = document.createElement("h3");
-    const textY = document.createTextNode("Year: ");
+    const yearElem = document.createElement("p");
+    const textY = document.createTextNode("Year:  ");
+    textY.className = 'title-style';
     yearElem.appendChild(textY);
     yearElem.innerHTML += filmData.Year;
-    movieDetailsContainer.appendChild(yearElem);
+    articleText.appendChild(yearElem);
+    
+    //Runtime
+    const runElem = document.createElement("p");
+    const textRunE = document.createTextNode("Runtime:  ")
+    const punto = document.createTextNode(".");
+
+    runElem.appendChild(textRunE);
+    runElem.innerHTML += filmData.Runtime;
+    articleText.appendChild(runElem);
+    articleText.appendChild(punto);
+
+    //Country
+    
+    const countryElem = document.createElement("p");
+    const textC = document.createTextNode("Country:  ")
+    countryElem.appendChild(textC);
+    countryElem.innerHTML += filmData.Country;
+    articleText.appendChild(countryElem);
+    articleText.appendChild(punto);
+
+    //Direction
+    
+    const direElem = document.createElement("p");
+    const textDir = document.createTextNode("Direction:  ");
+    direElem.appendChild(textDir);
+    direElem.innerHTML += filmData.Director;
+    articleText.appendChild(direElem);
+
+    articleText.appendChild(punto);
+
+    //Writer
+     
+    const writerElem = document.createElement("p");
+    const textW = document.createTextNode("Writer:  ");
+    writerElem.appendChild(textW);
+    writerElem.innerHTML += filmData.Writer;
+    articleText.appendChild(writerElem);
+    articleText.appendChild(punto);
+    
+    //Cast
+    
+    const castElem = document.createElement("p");
+    const textAct = document.createTextNode("Cast:  ")
+    castElem.appendChild(textAct);
+    castElem.innerHTML += filmData.Actors;
+    articleText.appendChild(castElem);
+    articleText.appendChild(punto);
+
+    
+    
+    
+    
+    //Type
+    
+    const typElem = document.createElement("p");
+    const textoTyp = document.createTextNode("Type: ")
+    typElem.appendChild(textoTyp);
+    typElem.innerHTML += filmData.Type;
+    articleText.appendChild(typElem);
+    
+    
+    //Boxoffice
+    
+    const boxOffice = document.createElement("p");
+    const textBox = document.createTextNode("BoxOffice: ")
+    boxOffice.appendChild(textBox);
+    boxOffice.innerHTML += filmData.BoxOffice;
+    articleText.appendChild(boxOffice);
+    
+    //Genre
+    const generElem = document.createElement("p");
+    const textGen = document.createTextNode("Genre:  ");
+    
+    generElem.appendChild(textGen);
+    generElem.innerHTML += filmData.Genre + ".";
+    articleText.appendChild(generElem);
+    generElem.appendChild(punto);
+    //articleText.appendChild(punto);
+    
+    //Premios
+    
+    const awardsElem = document.createElement("p");
+    const textAward = document.createTextNode("Awards:  ")
+    awardsElem.appendChild(textAward);
+    awardsElem.innerHTML += filmData.Awards;   
+    articleText.appendChild(awardsElem);
+    //articleMoreInfo.appendChild(punto);
+    
+    //Language
+    
+    const languaElem = document.createElement("p");
+    const textLangua = document.createTextNode("Language: ");
+    languaElem.appendChild(textLangua);
+    languaElem.innerHTML += filmData.Language;
+    articleText.appendChild(languaElem);
     
     //Imagen
+    //const mainContainer = document.getElementById("main-container");
+    
     const imagenElem = document.createElement("img");
     imagenElem.src = filmData.Poster;
-    movieDetailsContainer.appendChild(imagenElem);
+    
+    
+    
+    const articleImage = document.createElement("article");
+    articleImage.className = 'article-image';
+    articlePrincipal.appendChild(articleImage);
+    articleImage.appendChild(imagenElem);
+    
+    //Create article with moreinfo
+    
+    
+    const articleMoreInfo = document.createElement("article");
+    articleMoreInfo.className = 'article-more-info';
+    movieSection.appendChild(articleMoreInfo);
+    
+    
+    
+    //Plot
+    
+    const plotElem = document.createElement("p");
+    const textPlot = document.createTextNode('Plot: ');
+    plotElem.appendChild(textPlot);
+    plotElem.innerHTML += filmData.Plot;
+    articleMoreInfo.appendChild(plotElem);
+    
+
+    //Creo un articulo articleRatings dentro de MoreInfo para que contenga 2 articulos: Rating1 y Rating2 para ponerlos en flexbox
+
+    const articleRatings = document.createElement("article-ratings");
 
     //Ratings
     const ratings = filmData.Ratings;   //Asigno una variable a la info de la pagina
-    const textRatings = document.createTextNode("Ratings: "); 
+    
+    const textRatings = document.createTextNode("Ratings:  "); 
     const ratingElem = document.createElement("p");  //Creo elemento para el texto q traje
+    
+
+
+
+    articleMoreInfo.appendChild(articleRatings);
+
+
+    const articleRating1 = document.createElement("article");
+    articleRating1.className = "article-rating1";
+
     
     ratingElem.appendChild(textRatings);
     
     for(let i = 0; i < ratings.length; i++)
     {
-        const RatingObj = ratings[i];
-        ratingElem.innerHTML += `<br> ${RatingObj.Source}: ${RatingObj.Value} `;
-        movieDetailsContainer.appendChild(ratingElem).style.color="red"; 
-    }
-   
+      const RatingObj = ratings[i];
+      
+      
+      ratingElem.innerHTML += `<br> ${RatingObj.Source}: ${RatingObj.Value} `;
+      
+      articleRating1.appendChild(ratingElem); 
+      
+    }  
+    articleRatings.appendChild(articleRating1);
 
-    //Genre
-    const generElem = document.createElement("h5");
-    const textGen = document.createTextNode("Genre: ");
-    generElem.appendChild(textGen);
-    generElem.innerHTML += filmData.Genre;
-    movieDetailsContainer.appendChild(generElem);
+
+
+
+    //Creacion article rating2
+
+    const articleRating2 = document.createElement("article");
+    articleRating2.className = 'article-rating2';
+    articleRatings.appendChild(articleRating2);
+    //
+
     
-    //Director
-
-    const direElem = document.createElement("h5");
-    const textDir = document.createTextNode("Director: ");
-    direElem.appendChild(textDir);
-    direElem.innerHTML += filmData.Director;
-    movieDetailsContainer.appendChild(direElem);
-     
-    //Writer
-     
-    const writerElem = document.createElement("h5");
-    const textW = document.createTextNode("Writer: ");
-    writerElem.appendChild(textW);
-    writerElem.innerHTML += filmData.Writer;
-    movieDetailsContainer.appendChild(writerElem);
-     
-    //Actores
-     
-    const actorsElem = document.createElement("h5");
-    const textAct = document.createTextNode("Actors: ")
-    actorsElem.appendChild(textAct);
-    actorsElem.innerHTML += filmData.Actors;
-    movieDetailsContainer.appendChild(actorsElem);
-     
-     //Plot
-     
-     const plotElem = document.createElement("p");
-     const textPlot = document.createTextNode("Plot: ");
-     plotElem.appendChild(textPlot);
-     plotElem.innerHTML += filmData.Plot;
-     movieDetailsContainer.appendChild(plotElem);
-
-    //Premios
-
-    const awardsElem = document.createElement("p");
-    const textAward = document.createTextNode("Awards: ")
-    awardsElem.appendChild(textAward);
-    awardsElem.innerHTML += filmData.Awards;
-    movieDetailsContainer.appendChild(awardsElem);    
-        
-    //Boxoffice
-
-    const boxOffice = document.createElement("p");
-    const textBox = document.createTextNode("BoxOffice: ")
-    boxOffice.appendChild(textBox);
-    boxOffice.innerHTML += filmData.BoxOffice;
-    movieDetailsContainer.appendChild(boxOffice);
-
-    //Pais
-
-    const paisElem = document.createElement("p");
-    const textC = document.createTextNode("Country: ")
-    paisElem.appendChild(textC);
-    paisElem.innerHTML += filmData.Country;
-    movieDetailsContainer.appendChild(paisElem);
-
-    //Idioma
-
-    const languaElem = document.createElement("p");
-    const textLangua = document.createTextNode("Language: ");
-    languaElem.appendChild(textLangua);
-    languaElem.innerHTML += filmData.Language;
-    movieDetailsContainer.appendChild(languaElem);
-
-    //Runtime
-    const runElem = document.createElement("p");
-    const textRunE = document.createTextNode("Runtime: ")
-    runElem.appendChild(textRunE);
-    runElem.innerHTML += filmData.Runtime;
-    movieDetailsContainer.appendChild(runElem);
-
-    //Type
-
-    const typElem = document.createElement("p");
-    const textoTyp = document.createTextNode("Type: ")
-    typElem.appendChild(textoTyp);
-    typElem.innerHTML += filmData.Type;
-    movieDetailsContainer.appendChild(typElem);
-
-
     //IMDB Rating
-
     const imdbRatElem = document.createElement("p");
     const textImdbR = document.createTextNode("IMDB Rating: ")
     imdbRatElem.appendChild(textImdbR);
     imdbRatElem.innerHTML += filmData.imdbRating;
-    movieDetailsContainer.appendChild(imdbRatElem);
+    articleRating2.appendChild(imdbRatElem);
+
+
+
 
     //imdbVotes
 
@@ -329,6 +415,7 @@ async function createFilmFile(filmData) {
     const textV = document.createTextNode("IMDB Votes: ");
     imdbVotElem.appendChild(textV);
     imdbVotElem.innerHTML += filmData.imdbVotes;
-    movieDetailsContainer.appendChild(imdbVotElem);
+    articleRating2.appendChild(imdbVotElem)
+    //articleRatings.appendChild(imdbVotElem);
         
 }
