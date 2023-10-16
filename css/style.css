@@ -2,10 +2,10 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
-    background: #F6F7F8;
+    background:#727272;
 }
 
-h1{
+#titulo-header{
     font-size: 50px;
     text-align: center;
     margin: 20px;
@@ -34,28 +34,30 @@ input[type=text]{
     padding: 5px 15px;
     margin: 10px 0;
     border-radius: 5px;
-    background: #505050;
-    color: #fff;
+    background-color: #a8a8a8;
+    color: rgb(37, 37, 37);
     font-size: 18px;
 }
 
 #submit:hover{
     background: #fff;
-    color: #505050;
+    color: #8a8585;
+    font-weight: 500;
 }
 
 #clear-elements{
     padding: 5px 15px;
     margin: 10px 0;
     border-radius: 5px;
-    background: #505050;
-    color: #fff;
+    background-color: #a8a8a8;
+    color: rgb(37, 37, 37);
     font-size: 18px;
 }
 
 #clear-elements:hover{
     background: #fff;
-    color: #505050;
+    color: #8a8585;
+    font-weight: 500;
 }
 
 #movie-search-form{
@@ -65,11 +67,12 @@ input[type=text]{
 }
 
 #movie-year-p, #movie-type-p{
-    font-weight: 300;
+    font-weight: 500;
     padding-top: 10px;
     font-size: 18px;
     text-align: center;
     color: rgb(37, 37, 37);
+
 }
 
 #main-container{
@@ -78,7 +81,7 @@ input[type=text]{
     margin-right: 40px;
 }
 
-#movie-details-container{
+.clBusqueda{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -87,24 +90,34 @@ input[type=text]{
 }
 
 .movie-details{
-    width: 18%;
+    width: 16%;
     padding-bottom: 25px;
-   /*  padding: 10px; */
-    background-color: #bdbfc0;
-    margin: 10px;
+    background-color: #a8a8a8;
+    margin-bottom: 60px;
     border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* img{
+.movie-details:hover{
+    cursor: pointer;
+}
+
+.movie-image{
     height: 400px;
-    width: 80%;
+    width: 90%;
+    overflow: hidden;
     border-radius: 10px;
     display: block;
     margin-top: 60px;
     margin-left: 28px;
 
 }
- */
+ 
 .movieSection{
 
 border: 1px solid rgb(107, 90, 90);
