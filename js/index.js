@@ -20,7 +20,7 @@ document.getElementById('movie-search-form').addEventListener('submit', async fu
     //alerta si no meten ningún título
     if (movieTitle === "") {
       //Utilizo esto por si quiero decir que metan algo en el form, pero si le doy al refrescar tambien me sale, solucionar el problema
-      alert('Ingresa un título de película');
+      alert('Insert movie title');
       return;
     }
   
@@ -82,12 +82,12 @@ function renderMovie(result){
 
   const yearElement = document.createElement('p');
   yearElement.setAttribute("id", "movie-year-p");
-  yearElement.textContent = `Año: ${result.Year}`;
+  yearElement.textContent = `Year: ${result.Year}`;
   movieDetailsArticle.appendChild(yearElement);
 
   const typeElement = document.createElement('p');
   typeElement.setAttribute("id", "movie-type-p");
-  typeElement.textContent = `Tipo: ${result.Type}`;
+  typeElement.textContent = `Type: ${result.Type}`;
   movieDetailsArticle.appendChild(typeElement);
 
   //favs (ALEX)
