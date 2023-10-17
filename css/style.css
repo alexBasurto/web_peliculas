@@ -87,15 +87,9 @@ input[type=text]{
 }
 
 #main-container{
-   /*//width: vw;*/
-   /*margin-right: 40px;
-   margin-left: 40px;*/
-   /*padding-left: 250px;
-   padding-right: 250px;
-   */
-   
-   display: flex;
-    margin-bottom: 40px;
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
     justify-content: center;
 }
 
@@ -147,7 +141,8 @@ input[type=text]{
     background-color: #A8A8A8;
     border-radius: 10px;
     align-items: center;
-    width: 70%;
+    width: 100%;
+    position: relative;
 }
 
 .title-style
@@ -170,14 +165,14 @@ color:rgb(37, 37, 37);
 
 .article-text
 {
-width: 40%;
+width: 65%;
 display: block;
 text-align: left;
 }
 
 .article-image
 {
-    width: 50%;
+    width: 35%;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -191,6 +186,14 @@ img{
 img.favorite {
     width: 48px;
     height: 48px;
+}
+
+.clFicha > img.favorite {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
 }
 
 h1
