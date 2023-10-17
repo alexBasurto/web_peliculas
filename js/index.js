@@ -267,13 +267,11 @@ async function createFilmFile(filmData) {
 
     //Runtime
     const runElem = document.createElement("p");
-    const textRunE = document.createTextNode("Runtime:  ")
-    const punto = document.createTextNode(".");
+    const textRunE = document.createTextNode("Runtime:  ");
 
     runElem.appendChild(textRunE);
     runElem.innerHTML += filmData.Runtime;
     articleText.appendChild(runElem);
-    articleText.appendChild(punto);
 
 
     //Rated

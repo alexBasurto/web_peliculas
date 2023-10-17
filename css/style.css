@@ -90,6 +90,7 @@ input[type=text]{
     width: vw;
     display: flex;
     margin-right: 40px;
+    margin-left: 40px;
     margin-bottom: 40px;
 }
 
@@ -113,6 +114,10 @@ input[type=text]{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#movie-details-container {
+    margin-left: 0;
 }
 
 .movie-image:hover{
