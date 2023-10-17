@@ -142,6 +142,7 @@ input[type=text]{
     border-radius: 10px;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
 .title-style
@@ -185,6 +186,14 @@ img{
 img.favorite {
     width: 48px;
     height: 48px;
+}
+
+.clFicha > img.favorite {
+    position: absolute;
+    top: -40px;
+    right: -30px;
+    width: 60px;
+    height: 60px;
 }
 
 h1
