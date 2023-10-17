@@ -263,6 +263,8 @@ async function createFilmFile(filmData) {
     yearElem.innerHTML += filmData.Year;
     articleText.appendChild(yearElem);
     
+
+
     //Runtime
     const runElem = document.createElement("p");
     const textRunE = document.createTextNode("Runtime:  ")
@@ -272,6 +274,40 @@ async function createFilmFile(filmData) {
     runElem.innerHTML += filmData.Runtime;
     articleText.appendChild(runElem);
     articleText.appendChild(punto);
+
+
+    //Rated
+    const ratedElem = document.createElement("p");
+    const textRatedE = document.createTextNode("Certification: ");
+    ratedElem.appendChild(textRatedE);
+    const certificationElem = document.createElement("p");
+    const certification = document.createTextNode(filmData.Rated);
+    certificationElem.appendChild(certification);
+    ratedElem.appendChild(certificationElem)
+    articleText.appendChild(ratedElem);
+    //Estilos de certification (rated)
+    const certficationsColors = {
+      'R': '#D30000',
+      'PG-13': '#A0A500',
+      'G': '#199500',
+      'PG': '#199500',
+      'N/A': '#737373',
+      'Not Rated': '#737373',
+    };
+    const certificationBGColors = {
+      'R': '#FF7474',
+      'PG-13': '#F7FC5A',
+      'G': '#8BFF74',
+      'PG': '#8BFF74',
+      'N/A': '#BFBFBF',
+      'Not Rated': '#BFBFBF',
+    };
+    if (filmData.Rated === 'R' || filmData.Rated === 'PG-13' || filmData.Rated === 'PG' || filmData.Rated === 'G' || filmData.Rated === 'N/A' || filmData.Rated === 'Not Rated') {
+      certificationElem.style.color = certficationsColors[filmData.Rated];
+      certificationElem.style.backgroundColor = certificationBGColors[filmData.Rated];
+      certificationElem.style.display = 'inline';
+      certificationElem.style.borderRadius = '25px';
+    }
 
     //Country
     
