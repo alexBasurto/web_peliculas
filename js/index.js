@@ -82,12 +82,12 @@ function renderMovie(result){
 
   const yearElement = document.createElement('p');
   yearElement.setAttribute("id", "movie-year-p");
-  yearElement.textContent = `Año: ${result.Year}`;
+  yearElement.textContent = `Year: ${result.Year}`;
   movieDetailsArticle.appendChild(yearElement);
 
   const typeElement = document.createElement('p');
   typeElement.setAttribute("id", "movie-type-p");
-  typeElement.textContent = `Tipo: ${result.Type}`;
+  typeElement.textContent = `Type: ${result.Type}`;
   movieDetailsArticle.appendChild(typeElement);
 
   //favs (ALEX)
