@@ -136,6 +136,7 @@ input[type=text]{
     background-color: #A8A8A8;
     border-radius: 10px;
     align-items: center;
+    width: 70%;
 }
 
 .title-style
@@ -172,7 +173,8 @@ text-align: left;
 
 img{
     object-fit: cover;
-    width:600px;
+    width:400px;
+    border-radius: 10px;
 
 }
 
@@ -227,5 +229,4 @@ p
     width: 35px;
     height: 35px;
     margin-top: 10px;
-
 }
