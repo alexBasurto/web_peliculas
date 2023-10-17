@@ -224,10 +224,14 @@ async function createFilmFile(filmData) {
     movieDetailsContainer.innerHTML = "";
 
     //Creo clase para la sección
-    const movieSection = document.createElement("section");
-    movieSection.className = 'movieSection';
+    //const movieSection = document.createElement("section");
+    //movieSection.className = 'movieSection';
+
+
+    movieDetailsContainer.className = 'clFicha';
+
     //Meto la nueva sección en la que ya existía
-    movieDetailsContainer.appendChild(movieSection);
+    //movieDetailsContainer.appendChild(movieSection);
 
     //Titulo
     
@@ -236,13 +240,13 @@ async function createFilmFile(filmData) {
     const tituloElem = document.createElement("h1");
     tituloElem.className = "title-style";
     tituloElem.innerHTML = filmData.Title.toUpperCase();
-    movieSection.appendChild(tituloElem);
+    movieDetailsContainer.appendChild(tituloElem);
     
     //Creo ARTICULO PRINCIPAL, contendrá articulo de texto y otro de imagen en FLEXBOX
 
     const articlePrincipal = document.createElement("article");
     articlePrincipal.className = "article-principal";
-    movieSection.appendChild(articlePrincipal);
+    movieDetailsContainer.appendChild(articlePrincipal);
 
     //Creo ARTICULO de texto dentro de la sección y del ARTICULO PRINCIPAL     
     const articleText = document.createElement('article');
@@ -312,7 +316,7 @@ async function createFilmFile(filmData) {
     countryElem.appendChild(textC);
     countryElem.innerHTML += filmData.Country;
     articleText.appendChild(countryElem);
-    articleText.appendChild(punto);
+    
 
     //Direction
     
@@ -322,7 +326,6 @@ async function createFilmFile(filmData) {
     direElem.innerHTML += filmData.Director;
     articleText.appendChild(direElem);
 
-    articleText.appendChild(punto);
 
     //Writer
      
@@ -331,7 +334,7 @@ async function createFilmFile(filmData) {
     writerElem.appendChild(textW);
     writerElem.innerHTML += filmData.Writer;
     articleText.appendChild(writerElem);
-    articleText.appendChild(punto);
+  
     
     //Cast
     
@@ -340,7 +343,7 @@ async function createFilmFile(filmData) {
     castElem.appendChild(textAct);
     castElem.innerHTML += filmData.Actors;
     articleText.appendChild(castElem);
-    articleText.appendChild(punto);
+
 
     //Type
     
@@ -363,10 +366,9 @@ async function createFilmFile(filmData) {
     const textGen = document.createTextNode("Genre:  ");
     
     generElem.appendChild(textGen);
-    generElem.innerHTML += filmData.Genre + ".";
+    generElem.innerHTML += filmData.Genre;
     articleText.appendChild(generElem);
-    generElem.appendChild(punto);
-    //articleText.appendChild(punto);
+    
     
     //Premios
     
@@ -405,7 +407,7 @@ async function createFilmFile(filmData) {
     
     const articleMoreInfo = document.createElement("article");
     articleMoreInfo.className = 'article-more-info';
-    movieSection.appendChild(articleMoreInfo);
+    movieDetailsContainer.appendChild(articleMoreInfo);
     
     
     
@@ -420,7 +422,8 @@ async function createFilmFile(filmData) {
 
     //Creo un articulo articleRatings dentro de MoreInfo para que contenga 2 articulos: Rating1 y Rating2 para ponerlos en flexbox
 
-    const articleRatings = document.createElement("article-ratings");
+    const articleRatings = document.createElement("article");
+    articleRatings.className = 'article-ratings';
 
     //Ratings
     const ratings = filmData.Ratings;   //Asigno una variable a la info de la pagina
@@ -450,6 +453,7 @@ async function createFilmFile(filmData) {
       articleRating1.appendChild(ratingElem); 
       
     }  
+
     articleRatings.appendChild(articleRating1);
 
 
@@ -501,7 +505,7 @@ async function createFilmFile(filmData) {
     addOrRemoveFavs(filmData.imdbID);
 });
 
-  movieSection.appendChild(favElement);
+  movieDetailsContainer.appendChild(favElement);
 
 }
 
