@@ -190,8 +190,8 @@ img.favorite {
 
 .clFicha > img.favorite {
     position: absolute;
-    top: -40px;
-    right: -30px;
+    top: 40px;
+    right: 40px;
     width: 60px;
     height: 60px;
 }
