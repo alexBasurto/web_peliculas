@@ -229,8 +229,6 @@ async function createFilmFile(filmData) {
     //Meto la nueva sección en la que ya existía
     movieDetailsContainer.appendChild(movieSection);
 
-    
-    
     //Titulo
     
     // const title = filmData.Title;
@@ -240,13 +238,11 @@ async function createFilmFile(filmData) {
     tituloElem.innerHTML = filmData.Title.toUpperCase();
     movieSection.appendChild(tituloElem);
     
-
     //Creo ARTICULO PRINCIPAL, contendrá articulo de texto y otro de imagen en FLEXBOX
 
     const articlePrincipal = document.createElement("article");
     articlePrincipal.className = "article-principal";
     movieSection.appendChild(articlePrincipal);
-
 
     //Creo ARTICULO de texto dentro de la sección y del ARTICULO PRINCIPAL     
     const articleText = document.createElement('article');
@@ -310,10 +306,6 @@ async function createFilmFile(filmData) {
     articleText.appendChild(castElem);
     articleText.appendChild(punto);
 
-    
-    
-    
-    
     //Type
     
     const typElem = document.createElement("p");
@@ -321,7 +313,6 @@ async function createFilmFile(filmData) {
     typElem.appendChild(textoTyp);
     typElem.innerHTML += filmData.Type;
     articleText.appendChild(typElem);
-    
     
     //Boxoffice
     
