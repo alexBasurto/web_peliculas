@@ -93,17 +93,17 @@ function renderMovie(result){
   //favs (ALEX)
   const favElement = document.createElement('img');
   if (isThisFilmFav(result.imdbID)) {
-    favElement.setAttribute("src", "../assets/fav.png");
+    favElement.setAttribute("src", "../assets/star_fav.png");
   } else {
-    favElement.setAttribute("src", "../assets/nofav.png");
+    favElement.setAttribute("src", "../assets/star.png");
   }
   favElement.className = 'favorite';
   favElement.addEventListener('click', () => {
     const currentSrc = favElement.getAttribute('src');
-    if (currentSrc === '../assets/fav.png') {
-      favElement.setAttribute("src", "../assets/nofav.png");
-    } else if (currentSrc === '../assets/nofav.png') {
-      favElement.setAttribute("src", "../assets/fav.png");
+    if (currentSrc === '../assets/star_fav.png') {
+      favElement.setAttribute("src", "../assets/star.png");
+    } else if (currentSrc === '../assets/star.png') {
+      favElement.setAttribute("src", "../assets/star_fav.png");
     }
 
     addOrRemoveFavs(result.imdbID);
@@ -117,7 +117,7 @@ function renderMovie(result){
 
 
   //click en la imágen y pinto con la función getSingleFilm que recoge con el imdbId toda al info de la película
-  movieDetailsArticle.addEventListener('click', function() {
+  imgElement.addEventListener('click', function() {
 
     //el IMDb ID de la película
     const imdbID = result.imdbID; 
@@ -126,11 +126,11 @@ function renderMovie(result){
     });
   }
 
-//declaro variable para el boton de refrescar
-const clearButton = document.getElementById('clear-elements');
+  //declaro variable para el boton de refrescar
+  const clearButton = document.getElementById('clear-elements');
 
-//función de refrescar
-clearButton.addEventListener("click", function(event){
+  //función de refrescar
+  clearButton.addEventListener("click", function(event){
   //si hago click en este boton no le llega info al formulario de que se ha hecho click
   //event.stopPropagation();
   // lista de todos los elementos con class movie-details
@@ -229,8 +229,6 @@ async function createFilmFile(filmData) {
     //Meto la nueva sección en la que ya existía
     movieDetailsContainer.appendChild(movieSection);
 
-    
-    
     //Titulo
     
     // const title = filmData.Title;
@@ -240,13 +238,11 @@ async function createFilmFile(filmData) {
     tituloElem.innerHTML = filmData.Title.toUpperCase();
     movieSection.appendChild(tituloElem);
     
-
     //Creo ARTICULO PRINCIPAL, contendrá articulo de texto y otro de imagen en FLEXBOX
 
     const articlePrincipal = document.createElement("article");
     articlePrincipal.className = "article-principal";
     movieSection.appendChild(articlePrincipal);
-
 
     //Creo ARTICULO de texto dentro de la sección y del ARTICULO PRINCIPAL     
     const articleText = document.createElement('article');
@@ -346,10 +342,6 @@ async function createFilmFile(filmData) {
     articleText.appendChild(castElem);
     articleText.appendChild(punto);
 
-    
-    
-    
-    
     //Type
     
     const typElem = document.createElement("p");
@@ -357,7 +349,6 @@ async function createFilmFile(filmData) {
     typElem.appendChild(textoTyp);
     typElem.innerHTML += filmData.Type;
     articleText.appendChild(typElem);
-    
     
     //Boxoffice
     
@@ -398,9 +389,11 @@ async function createFilmFile(filmData) {
     //const mainContainer = document.getElementById("main-container");
     
     const imagenElem = document.createElement("img");
+    if(filmData.Poster !== 'N/A'){
     imagenElem.src = filmData.Poster;
-    
-    
+    } else{
+      imagenElem.src = "../assets/placeholder-vertical.jpg";
+    }
     
     const articleImage = document.createElement("article");
     articleImage.className = 'article-image';
@@ -491,18 +484,18 @@ async function createFilmFile(filmData) {
   //favs (código de ALEX)
   const favElement = document.createElement('img');
   if (isThisFilmFav(filmData.imdbID)) {
-    favElement.setAttribute("src", "../assets/fav.png");
+    favElement.setAttribute("src", "../assets/star_fav.png");
   } else {
-    favElement.setAttribute("src", "../assets/nofav.png");
+    favElement.setAttribute("src", "../assets/star.png");
   }
   favElement.className = 'favorite';
 
   favElement.addEventListener('click', () => {
     const currentSrc = favElement.getAttribute('src');
-    if (currentSrc === '../assets/fav.png') {
-      favElement.setAttribute("src", "../assets/nofav.png");
-    } else if (currentSrc === '../assets/nofav.png') {
-      favElement.setAttribute("src", "../assets/fav.png");
+    if (currentSrc === '../assets/star_fav.png') {
+      favElement.setAttribute("src", "../assets/star.png");
+    } else if (currentSrc === '../assets/star.png') {
+      favElement.setAttribute("src", "../assets/star_fav.png");
     }
 
     addOrRemoveFavs(filmData.imdbID);
