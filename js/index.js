@@ -20,7 +20,7 @@ document.getElementById('movie-search-form').addEventListener('submit', async fu
     //alerta si no meten ningún título
     if (movieTitle === "") {
       //Utilizo esto por si quiero decir que metan algo en el form, pero si le doy al refrescar tambien me sale, solucionar el problema
-      alert('Ingresa un título de película');
+      alert('Insert movie title');
       return;
     }
   
