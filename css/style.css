@@ -87,11 +87,16 @@ input[type=text]{
 }
 
 #main-container{
-    width: vw;
-    display: flex;
-    margin-right: 40px;
-    margin-left: 40px;
+   /*//width: vw;*/
+   /*margin-right: 40px;
+   margin-left: 40px;*/
+   /*padding-left: 250px;
+   padding-right: 250px;
+   */
+   
+   display: flex;
     margin-bottom: 40px;
+    justify-content: center;
 }
 
 .clBusqueda{
@@ -203,6 +208,7 @@ p
     font-size: 23px;
     color:rgb(37, 37, 37);
 }
+
 
 .article-more-info{
 
