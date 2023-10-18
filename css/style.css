@@ -146,10 +146,10 @@ input[type=text]{
 
 .title-style
 {
-color: "red";
-font-size: 80px;
-text-align: center;
-color:rgb(37, 37, 37);
+    color: "red";
+    font-size: 80px;
+    text-align: center;
+    color:rgb(37, 37, 37);
 
 }
 
@@ -164,9 +164,9 @@ color:rgb(37, 37, 37);
 
 .article-text
 {
-width: 65%;
-display: block;
-text-align: left;
+    width: 65%;
+    display: block;
+    text-align: left;
 }
 
 .article-image
@@ -204,19 +204,15 @@ p
 }
 
 .article-more-info{
-
     justify-content: space-evenly;
     align-items: center;
     padding-bottom: 20px;
     margin: auto 5%;
     padding-top: 0;
     margin-top: 0;
-
 }
 
 .article-ratings{
-
-
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -225,9 +221,7 @@ p
 }
 
 .article-rating1{
-
     display: flex;
-
 }
 
 .favorite{
